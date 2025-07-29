@@ -1,3 +1,4 @@
+import CartButton from '@/components/CartButton';
 import { images, offers } from '@/constants';
 import clsx from 'clsx';
 import { Fragment } from 'react';
@@ -36,13 +37,13 @@ export default function Index() {
 					<View className='flex-between flex-row w-full my-5'>
 						<View className='flex-start'>
 							<Text className='small-bold text-primary'>DELIVER TO</Text>
-							<TouchableOpacity className='flex-center flex-row gap-x-1 mt-0.5'>
+							<TouchableOpacity className='flex-center flex-row gap-x-2 mt-0.5'>
 								<Text className='paragraph-bold text-dark-100'>Mumbai</Text>
 								<Image source={images.arrowDown} className='size-3' resizeMode='contain' />
 							</TouchableOpacity>
 						</View>
 
-						<Text>Cart</Text>
+						<CartButton />
 					</View>
 				)}
 				contentContainerClassName='pb-28 px-5'

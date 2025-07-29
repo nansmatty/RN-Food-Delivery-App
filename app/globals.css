@@ -94,7 +94,7 @@
     }
 
     .h1-bold {
-        @apply text-3xl font-quicksand-bold;
+        @apply text-2xl font-quicksand-bold; /* Adjusted to match the design. It was 3xl but after watching on my phone I changed it 2xl */
     }
 
     .h3-bold {
