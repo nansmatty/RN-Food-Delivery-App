@@ -11,7 +11,7 @@ const CustomButton = ({ onPress, title = 'Click Me', style, leftIcon, textStyle,
 				{isLoading ? (
 					<ActivityIndicator size={'small'} color='white' />
 				) : (
-					<Text className={clsx('text-white-100 paragraph-bold', textStyle)}>{title}</Text>
+					<Text className={clsx('text-white-100 paragraph-semibold', textStyle)}>{title}</Text>
 				)}
 			</View>
 		</TouchableOpacity>
