@@ -19,7 +19,7 @@ const SignUp = () => {
 		try {
 			// Call Appwrite signup functionality
 			await createUser({ email, password, name });
-			router.replace('/sign-in'); // Navigate to sign-in after successful account creation
+			router.replace('/'); // Navigate to sign-in after successful account creation
 		} catch (error: any) {
 			Alert.alert('Error', error.message);
 		} finally {

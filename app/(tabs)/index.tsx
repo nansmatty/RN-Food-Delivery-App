@@ -33,6 +33,7 @@ export default function Index() {
 						</View>
 					);
 				}}
+				contentContainerClassName='pb-28 px-5'
 				ListHeaderComponent={() => (
 					<View className='flex-between flex-row w-full my-5'>
 						<View className='flex-start'>
@@ -46,7 +47,6 @@ export default function Index() {
 						<CartButton />
 					</View>
 				)}
-				contentContainerClassName='pb-28 px-5'
 			/>
 		</SafeAreaView>
 	);
