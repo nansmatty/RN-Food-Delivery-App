@@ -32,11 +32,7 @@ const useAuthStore = create<AuthState>((set) => ({
 			if (user) {
 				set({
 					isAuthenticated: true,
-					user: {
-						name: user.name,
-						email: user.email,
-						avatar: user.avatar,
-					} as User,
+					user: user,
 				});
 			} else {
 				set({ isAuthenticated: false, user: null });

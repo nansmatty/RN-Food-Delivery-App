@@ -1,4 +1,4 @@
-import { CreateUserParams, GetMenuParams, SignInParams } from '@/type';
+import { Category, CreateUserParams, GetMenuParams, MenuItem, SignInParams, User } from '@/type';
 import { Account, Avatars, Client, Databases, ID, Query, Storage } from 'react-native-appwrite';
 
 export const appwriteConfig = {
@@ -55,7 +55,7 @@ export const getCurrentUser = async () => {
 		const currentAccount = await account.get();
 		if (!currentAccount) throw Error;
 
-		const currentUser = await databases.listDocuments(appwriteConfig.databaseId, appwriteConfig.userCollectionId, [
+		const currentUser = await databases.listDocuments<User>(appwriteConfig.databaseId, appwriteConfig.userCollectionId, [
 			Query.equal('accountId', currentAccount.$id),
 		]);
 
@@ -75,7 +75,7 @@ export const getMenu = async ({ category, query }: GetMenuParams) => {
 		if (category) queries.push(Query.equal('categories', category));
 		if (query) queries.push(Query.search('name', query));
 
-		const menu = await databases.listDocuments(appwriteConfig.databaseId, appwriteConfig.menuCollectionId, queries);
+		const menu = await databases.listDocuments<MenuItem>(appwriteConfig.databaseId, appwriteConfig.menuCollectionId, queries);
 
 		return menu.documents;
 	} catch (error) {
@@ -85,7 +85,7 @@ export const getMenu = async ({ category, query }: GetMenuParams) => {
 
 export const getCategories = async () => {
 	try {
-		const categories = await databases.listDocuments(appwriteConfig.databaseId, appwriteConfig.categoriesCollectionId);
+		const categories = await databases.listDocuments<Category>(appwriteConfig.databaseId, appwriteConfig.categoriesCollectionId);
 		return categories.documents;
 	} catch (error) {
 		throw new Error(error as string);

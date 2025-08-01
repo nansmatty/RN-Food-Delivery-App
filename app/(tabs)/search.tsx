@@ -1,4 +1,5 @@
 import CartButton from '@/components/CartButton';
+import MenuCard from '@/components/MenuCard';
 import { getCategories, getMenu } from '@/lib/appwrite';
 import useAppwrite from '@/lib/useAppwrite';
 import clsx from 'clsx';
@@ -26,7 +27,7 @@ const Search = () => {
 					const isFirstRightColItem = index % 2 === 0;
 					return (
 						<View className={clsx('flex-1 max-w-[48%]', !isFirstRightColItem ? 'mt-10' : 'mt-0')}>
-							<Text>Menu Card</Text>
+							<MenuCard item={item} />
 						</View>
 					);
 				}}
