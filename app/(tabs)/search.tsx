@@ -1,5 +1,7 @@
 import CartButton from '@/components/CartButton';
+import Filter from '@/components/Filter';
 import MenuCard from '@/components/MenuCard';
+import Searchbar from '@/components/Searchbar';
 import { getCategories, getMenu } from '@/lib/appwrite';
 import useAppwrite from '@/lib/useAppwrite';
 import clsx from 'clsx';
@@ -46,8 +48,8 @@ const Search = () => {
 							</View>
 							<CartButton />
 						</View>
-						<Text>Search Input</Text>
-						<Text>Filter</Text>
+						<Searchbar />
+						<Filter categories={categories!} />
 					</View>
 				)}
 				ListEmptyComponent={() => !loading && <Text className='text-center text-dark-100'>No results found</Text>}
