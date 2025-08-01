@@ -2,7 +2,7 @@ import { images } from '@/constants';
 import useAuthStore from '@/store/auth.store';
 import { TabBarIconProps } from '@/type';
 import clsx from 'clsx';
-import { Redirect, Slot, Tabs } from 'expo-router';
+import { Redirect, Tabs } from 'expo-router';
 import React from 'react';
 import { Image, Text, View } from 'react-native';
 
@@ -56,7 +56,6 @@ export default function TabLayout() {
 				name='profile'
 				options={{ title: 'Profile', tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} title='Profile' icon={images.person} /> }}
 			/>
-			<Slot />
 		</Tabs>
 	);
 }

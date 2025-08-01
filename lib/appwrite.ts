@@ -1,17 +1,17 @@
 import { CreateUserParams, SignInParams } from '@/type';
-import { Account, Avatars, Client, Databases, ID, Query } from 'react-native-appwrite';
+import { Account, Avatars, Client, Databases, ID, Query, Storage } from 'react-native-appwrite';
 
 export const appwriteConfig = {
 	endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT!,
 	projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!,
-	platform: process.env.EXPO_PUBLIC_APPWRITE_PLATFORM!,
-	databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!,
-	bucketId: process.env.EXPO_PUBLIC_APPWRITE_BUCKET_ID!,
-	userCollectionId: process.env.EXPO_PUBLIC_APPWRITE_USER_COLLECTION_ID!,
-	categoryCollectionId: process.env.EXPO_PUBLIC_APPWRITE_CATEGORY_COLLECTION_ID!,
-	menuCollectionId: process.env.EXPO_PUBLIC_APPWRITE_MENU_COLLECTION_ID!,
-	customizationsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_CUSTOMIZATIONS_COLLECTION_ID!,
-	menuCustomizationsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_MENU_CUSTOMIZATIONS_COLLECTION_ID!,
+	platform: 'com.ndev.foodordering',
+	databaseId: '688a0ee8002a354d7742',
+	bucketId: '688c81bd001d8e4d2de1',
+	userCollectionId: '688a0f190033f95ff4ea',
+	categoriesCollectionId: '688c76b800120affe610',
+	menuCollectionId: '688c77a9003067af609f',
+	customizationsCollectionId: '688c79210014b9620ac2',
+	menuCustomizationsCollectionId: '688c80a2003a2cd93713',
 };
 
 export const client = new Client();
@@ -20,6 +20,7 @@ client.setEndpoint(appwriteConfig.endpoint).setProject(appwriteConfig.projectId)
 
 export const account = new Account(client);
 export const databases = new Databases(client);
+export const storage = new Storage(client);
 const avatars = new Avatars(client);
 
 export const createUser = async ({ email, password, name }: CreateUserParams) => {
